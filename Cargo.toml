@@ -1,6 +1,6 @@
 [package]
 name = "slog-unwrap"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Andre Braga Reis <andre@brg.rs>"]
 edition = "2018"
 description = "Extention traits to log failed unwraps to a slog::Logger."
