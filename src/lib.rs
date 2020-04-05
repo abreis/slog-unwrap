@@ -1,3 +1,11 @@
+//! Extension traits for logging failed unwraps to a [`slog::Logger`].
+//!
+//! | `std` method              | `slog-unwrap` method                   | `slog-unwrap` trait |
+//! |---------------------------|----------------------------------------|---------------------|
+//! | `Result::unwrap()`        | `Result::unwrap_or_log(&log)`          | `ResultExt`         |
+//! | `Result::expect(msg)`     | `Result::expect_or_log(&log, msg)`     | `ResultExt`         |
+//! | `Result::unwrap_err()`    | `Result::unwrap_err_or_log(&log)`      | `ResultExt`         |
+//! | `Result::expect_err(msg)` | `Result::expect_err_or_log(&log, msg)` | `ResultExt`         |
 use std::fmt;
 
 //
@@ -11,6 +19,8 @@ pub trait ResultExt<T, E> {
     ///
     /// Panics if the value is an [`Err`], logging a message provided by the
     /// [`Err`]'s value to a [`slog::Logger`] at a [`Critical`] level.
+    ///
+    /// [`Critical`]: /slog/2/slog/2/slog/enum.Level.html#variant.Critical
     fn unwrap_or_log(self, log: &slog::Logger) -> T
     where
         E: fmt::Debug;
@@ -21,6 +31,8 @@ pub trait ResultExt<T, E> {
     ///
     /// Panics if the value is an [`Err`], logging the passed message and the
     /// content of the [`Err`] to a [`slog::Logger`] at a [`Critical`] level.
+    ///
+    /// [`Critical`]: /slog/2/slog/enum.Level.html#variant.Critical
     fn expect_or_log(self, log: &slog::Logger, msg: &str) -> T
     where
         E: fmt::Debug;
@@ -31,6 +43,8 @@ pub trait ResultExt<T, E> {
     ///
     /// Panics if the value is an [`Ok`], logging a message provided by the
     /// [`Ok`]'s value to a [`slog::Logger`] at a [`Critical`] level.
+    ///
+    /// [`Critical`]: /slog/2/slog/enum.Level.html#variant.Critical
     fn unwrap_err_or_log(self, log: &slog::Logger) -> E
     where
         T: fmt::Debug;
@@ -41,6 +55,8 @@ pub trait ResultExt<T, E> {
     ///
     /// Panics if the value is an [`Ok`], logging the passed message and the
     /// content of the [`Ok`] to a [`slog::Logger`] at a [`Critical`] level.
+    ///
+    /// [`Critical`]: /slog/2/slog/enum.Level.html#variant.Critical
     fn expect_err_or_log(self, log: &slog::Logger, msg: &str) -> E
     where
         T: fmt::Debug;

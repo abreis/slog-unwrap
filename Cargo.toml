@@ -1,12 +1,11 @@
 [package]
 name = "slog-unwrap"
-version = "0.1.2"
+version = "0.1.4"
 authors = ["Andre Braga Reis <andre@brg.rs>"]
 edition = "2018"
-description = "Extention traits to log failed unwraps to a slog::Logger."
+description = "Extension traits for logging failed unwraps to a slog::Logger."
 license = "Apache-2.0/MIT"
 repository = "https://github.com/abreis/slog-unwrap"
-homepage = "https://github.com/abreis/slog-unwrap"
 documentation = "https://docs.rs/slog-unwrap"
 keywords = ["log", "logging", "slog"]
 categories = ["development-tools::debugging"]
