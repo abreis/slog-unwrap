@@ -117,7 +117,6 @@ impl<T, E> ResultExt<T, E> for Result<T, E> {
 //
 
 pub trait OptionExt<T> {
-    // TODO writeme well
     /// Moves the value `v` out of the `Option<T>` if it is [`Some(v)`].
     ///
     /// In general, because this function may panic, its use is discouraged.
@@ -126,36 +125,34 @@ pub trait OptionExt<T> {
     ///
     /// # Panics
     ///
-    /// Panics if the self value equals [`None`].
+    /// Panics if the self value equals [`None`], logging an error message to a
+    /// [`slog::Logger`] at a [`Critical`] level.
     fn unwrap_or_log(self, log: &slog::Logger) -> T;
 
-    // TODO writeme well
     /// Unwraps an option, yielding the content of a [`Some`].
     ///
     /// # Panics
     ///
-    /// Panics if the value is a [`None`] with a custom panic message provided by
-    /// `msg`.
+    /// Panics if the value is a [`None`], logging the passed message to a
+    /// [`slog::Logger`] at a [`Critical`] level.
     fn expect_or_log(self, log: &slog::Logger, msg: &str) -> T;
 
-    // TODO writeme well
     /// Unwraps an option, expecting [`None`] and returning nothing.
     ///
     /// # Panics
     ///
-    /// Panics if the value is a [`Some`], with a custom panic message provided
-    /// by the [`Some`]'s value.
+    /// Panics if the value is a [`Some`], logging a message derived from the
+    /// [`Some`]'s value to a [`slog::Logger`] at a [`Critical`] level.
     fn unwrap_none_or_log(self, log: &slog::Logger)
     where
         T: fmt::Debug;
 
-    // TODO writeme well
     /// Unwraps an option, expecting [`None`] and returning nothing.
     ///
     /// # Panics
     ///
-    /// Panics if the value is a [`Some`], with a panic message including the
-    /// passed message, and the content of the [`Some`].
+    /// Panics if the value is a [`Some`], logging the passed message and the
+    /// content of the [`Some`] to a [`slog::Logger`] at a [`Critical`] level.
     fn expect_none_or_log(self, log: &slog::Logger, msg: &str)
     where
         T: fmt::Debug;
