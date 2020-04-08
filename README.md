@@ -26,16 +26,16 @@ fn main() {
 ```
 
 ### Methods
-| `std` method                 | `slog-unwrap` form                      | trait         |
-|------------------------------| ----------------------------------------|---------------|
-| `Result::unwrap()`           | `Result::unwrap_or_log(&log)`           | [`ResultExt`] |
-| `Result::expect(msg)`        | `Result::expect_or_log(&log, msg)`      | [`ResultExt`] |
-| `Result::unwrap_err()`       | `Result::unwrap_err_or_log(&log)`       | [`ResultExt`] |
-| `Result::expect_err(msg)`    | `Result::expect_err_or_log(&log, msg)`  | [`ResultExt`] |
-| `Option::unwrap()`           | `Option::unwrap_or_log(&log)`           | [`OptionExt`] |
-| `Option::expect(msg)`        | `Option::expect_or_log(&log, msg)`      | [`OptionExt`] |
-| `Option::unwrap_none()`<sup>†</sup>      | `Option::unwrap_none_or_log(&log)`      | [`OptionExt`] |
-| `Option::expect_none(msg)`<sup>†</sup>   | `Option::expect_none_or_log(&log, msg)` | [`OptionExt`] |
+| `std` method                   | `slog-unwrap` form                      | trait         |
+|--------------------------------| ----------------------------------------|---------------|
+| [`Result::unwrap()`]           | [`Result::unwrap_or_log(&log)`]           | [`ResultExt`] |
+| [`Result::expect(msg)`]        | [`Result::expect_or_log(&log, msg)`]      | [`ResultExt`] |
+| [`Result::unwrap_err()`]       | [`Result::unwrap_err_or_log(&log)`]       | [`ResultExt`] |
+| [`Result::expect_err(msg)`]    | [`Result::expect_err_or_log(&log, msg)`]  | [`ResultExt`] |
+| [`Option::unwrap()`]           | [`Option::unwrap_or_log(&log)`]           | [`OptionExt`] |
+| [`Option::expect(msg)`]        | [`Option::expect_or_log(&log, msg)`]      | [`OptionExt`] |
+| [`Option::unwrap_none()`]<sup>†</sup>      | [`Option::unwrap_none_or_log(&log)`]      | [`OptionExt`] |
+| [`Option::expect_none(msg)`]<sup>†</sup>   | [`Option::expect_none_or_log(&log, msg)`] | [`OptionExt`] |
 
 *†: unstable in `std`*<br/>
 *Note: enabling the `scope` feature drops the `&log` argument from all methods.*
@@ -55,3 +55,19 @@ See [slog-unwraps](https://crates.io/crates/slog_unwraps), another crate with a 
 [`ResultExt`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.ResultExt.html
 [`OptionExt`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.OptionExt.html
 [`Critical`]: https://docs.rs/slog/*/slog/enum.Level.html#variant.Critical
+[`Result::unwrap()`]: https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap
+[`Result::expect(msg)`]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect
+[`Result::unwrap_err()`]: https://doc.rust-lang.org/std/result/enum.Result.html#method.unwrap_err
+[`Result::expect_err(msg)`]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect_err
+[`Option::unwrap()`]: https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap
+[`Option::expect(msg)`]: https://doc.rust-lang.org/std/option/enum.Option.html#method.expect
+[`Option::unwrap_none()`]: https://doc.rust-lang.org/std/option/enum.Option.html#method.unwrap_none
+[`Option::expect_none(msg)`]: https://doc.rust-lang.org/std/option/enum.Option.html#method.expect_none
+[`Result::unwrap_or_log(&log)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.ResultExt.html#tymethod.unwrap_or_log
+[`Result::expect_or_log(&log, msg)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.ResultExt.html#tymethod.expect_or_log
+[`Result::unwrap_err_or_log(&log)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.ResultExt.html#tymethod.unwrap_err_or_log
+[`Result::expect_err_or_log(&log, msg)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.ResultExt.html#tymethod.expect_err_or_log
+[`Option::unwrap_or_log(&log)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.OptionExt.html#tymethod.unwrap_or_log
+[`Option::expect_or_log(&log, msg)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.OptionExt.html#tymethod.expect_or_log
+[`Option::unwrap_none_or_log(&log)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.OptionExt.html#tymethod.unwrap_none_or_log
+[`Option::expect_none_or_log(&log, msg)`]: https://docs.rs/slog-unwrap/*/slog_unwrap/trait.OptionExt.html#tymethod.expect_none_or_log
