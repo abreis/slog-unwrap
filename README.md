@@ -15,14 +15,13 @@ slog-unwrap = "0.9"
 
 Next, bring the [`ResultExt`] and/or [`OptionExt`] traits into scope, and make use of the new logging methods.
 ```rust
-use slog-unwrap::ResultExt;
+use slog_unwrap::ResultExt;
 
-fn main() {
-    let logger = ...;
+let logger = slog::Logger::root(slog::Discard, slog::o!());
+let not_great: Result<(), _> = Result::Err("not terrible");
 
-    let not_great = Result::Err("not terrible");
-    not_great.unwrap_or_log(&logger); // Logs the failed unwrap to `logger` and panics
-}
+// Logs the failed unwrap to `logger` and panics
+not_great.unwrap_or_log(&logger);
 ```
 
 ### Methods
