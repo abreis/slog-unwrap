@@ -13,7 +13,12 @@ readme = "README.md"
 
 [features]
 default = ["panic-quiet"]
+# Makes failed unwraps panic with an empty message.
 panic-quiet = []
+# Adds support for `slog-scope`, which removes the need to pass a `slog::Logger`
+# to the various methods.
+scope = ["slog-scope"]
 
 [dependencies]
 slog = "2.5"
+slog-scope = {version = "4.3", optional = true }
