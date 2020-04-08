@@ -10,7 +10,7 @@ Its API aims to mirror Rust's `std` — see all the [supported methods](#methods
 ### Usage
 Add the following to your `Cargo.toml`:
 ```toml
-slog-unwrap = "0.8"
+slog-unwrap = "0.9"
 ```
 
 Next, bring the [`ResultExt`] and/or [`OptionExt`] traits into scope, and make use of the new logging methods.
@@ -44,7 +44,7 @@ fn main() {
 ### Features
 * **`panic-quiet`**: causes failed unwraps to panic with an empty message.<br/>
   This feature is enabled by default — if you'd like the unwrap error message to also show in the panic message, disable default features in your `Cargo.toml` as follows:<br/>
-  `slog-unwrap = { version = "0.8", default-features = false }`
+  `slog-unwrap = { version = "0.9", default-features = false }`
 * **`scope`**: adds support for [`slog-scope`](https://github.com/slog-rs/scope), which removes the need to pass a [`slog::Logger`] to the various methods.
 
 
