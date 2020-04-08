@@ -20,3 +20,7 @@ mod slog;
 #[cfg(not(feature = "scope"))]
 pub use crate::slog::*;
 
+#[cfg(feature = "scope")]
+mod scope;
+#[cfg(feature = "scope")]
+pub use crate::scope::*;
