@@ -4,6 +4,7 @@ use std::fmt;
 // Extension trait for Result types.
 //
 
+/// Extension trait for Result types.
 pub trait ResultExt<T, E> {
     /// Unwraps a result, yielding the content of an [`Ok`].
     ///
@@ -110,6 +111,7 @@ impl<T, E> ResultExt<T, E> for Result<T, E> {
 // Extension trait for Option types.
 //
 
+// Extension trait for Option types.
 pub trait OptionExt<T> {
     /// Moves the value `v` out of the `Option<T>` if it is [`Some(v)`].
     ///

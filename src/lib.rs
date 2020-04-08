@@ -1,12 +1,6 @@
-//! ## slog-unwrap: extension traits for logging failed unwraps to a [`slog::Logger`].
-//!
 //! This crate provides `.unwrap_or_log()` and `.expect_or_log()` methods on `Result` and `Option` types that log failed unwraps to a [`slog::Logger`]. This is useful when, for example, you have a [syslog](https://github.com/slog-rs/syslog) drain or a database drain, and you want your unwrap failures to show up there instead of being printed to `stderr`.
 //!
 //! Its API aims to mirror Rust's `std` — see all the [supported methods](#methods) below. Failed unwraps are logged at a level of [`Critical`].
-//!
-//! [![crates.io](http://meritbadge.herokuapp.com/slog-unwrap)](https://crates.io/crates/slog-unwrap)
-//! [![Documentation](https://docs.rs/slog-unwrap/badge.svg)](https://docs.rs/slog-unwrap)
-//! [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](https://github.com/abreis/slog-unwrap)
 //!
 //! ### Usage
 //! Add the following to your `Cargo.toml`:
