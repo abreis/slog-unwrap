@@ -59,7 +59,7 @@ pub trait ResultExt<T, E> {
 
 impl<T, E> ResultExt<T, E> for Result<T, E> {
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn unwrap_or_log(self) -> T
     where
         E: fmt::Debug,
@@ -71,7 +71,7 @@ impl<T, E> ResultExt<T, E> for Result<T, E> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn expect_or_log(self, msg: &str) -> T
     where
         E: fmt::Debug,
@@ -83,7 +83,7 @@ impl<T, E> ResultExt<T, E> for Result<T, E> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn unwrap_err_or_log(self) -> E
     where
         T: fmt::Debug,
@@ -95,7 +95,7 @@ impl<T, E> ResultExt<T, E> for Result<T, E> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn expect_err_or_log(self, msg: &str) -> E
     where
         T: fmt::Debug,
@@ -164,7 +164,7 @@ impl<T> OptionExt<T> for Option<T> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn expect_or_log(self, msg: &str) -> T {
         match self {
             Some(val) => val,
@@ -173,7 +173,7 @@ impl<T> OptionExt<T> for Option<T> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn unwrap_none_or_log(self)
     where
         T: fmt::Debug,
@@ -187,7 +187,7 @@ impl<T> OptionExt<T> for Option<T> {
     }
 
     #[inline]
-    // #[track_caller]
+    #[track_caller]
     fn expect_none_or_log(self, msg: &str)
     where
         T: fmt::Debug,
@@ -204,7 +204,7 @@ impl<T> OptionExt<T> for Option<T> {
 
 #[inline(never)]
 #[cold]
-// #[track_caller]
+#[track_caller]
 fn failed(msg: &str) -> ! {
     slog_scope::crit!("{}", msg);
 
@@ -216,7 +216,7 @@ fn failed(msg: &str) -> ! {
 
 #[inline(never)]
 #[cold]
-// #[track_caller]
+#[track_caller]
 fn failed_with(msg: &str, value: &dyn fmt::Debug) -> ! {
     slog_scope::crit!("{}: {:?}", msg, &value);
 
